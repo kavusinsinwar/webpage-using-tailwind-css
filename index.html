@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Tailwind</title>
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="p-3 flex bg-white justify-between items-center">
+        <a href="#" id="brand" class="flex gap-1 items-center">
+            <img src="/ass" alt="" />
+            <img src="/assets/asset 0.png" alt="./asset 0.png" class="object-contain max-w-12 max-h-12">
+            <span class="text-lg font-medium font-display">ToDestop</span>
+        </a>
+
+        <!-- nav menu -->
+        <div id="navmenu" class="hidden md:flex gap-12">
+            <a href="#" class="font-medium hover:text-purple-700">Pricing</a>
+            <a href="#" class="font-medium hover:text-purple-700">Docs</a>
+            <a href="#" class="font-medium hover:text-purple-700">Changelog</a>
+            <a href="#" class="font-medium hover:text-purple-700">Blogs</a>
+            <a href="#" class="font-medium hover:text-purple-700">Login</a>
+        </div>
+
+        <button class="hidden md:flex font-display gap-2 items-center border border-gray-400 px-6 py-2 rounded-lg hover:bg-purple-600">
+            <img src="/assets/asset 1.svg" alt="" class="">
+            Electron Devloper<span><i class="fa-solid fa-arrow-right fa-bounce"></i></span>
+        </button>
+
+        <!-- Hamburger menu -->
+        <button class="p-2 md:hidden" onclick="handlemenu()">
+            <i class="fa-solid fa-bars fa-bounce" style="color: #17151c;"></i>
+        </button>
+        
+        <!-- Mobile navigation dialog (hidden by default) -->
+        <div id="navdilog" class="fixed bg-white p-3 inset-0 hidden">
+            <div class="flex justify-between">
+                <a href="#" id="brand" class="flex gap-1 items-center">
+                    <img src="/ass" alt="" />
+                    <img src="/assets/asset 0.png" alt="./asset 0.png" class="object-contain max-w-12 max-h-12">
+                    <span class="text-lg font-medium font-display">ToDestop</span>
+                </a>
+                <button class="p-2" onclick="handlemenu()">
+                    <i class="fa-regular fa-circle-xmark fa-bounce fa-2xl" style="color: #B197FC;"></i>
+                </button>
+            </div>
+            <!-- Add your menu links here (if any) -->
+        </div>
+    </nav>
+
+    <!-- Script for menu toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navDilog = document.getElementById('navdilog');
+            const hamburgerButton = document.querySelector('.fa-bars');
+            const closeButton = document.querySelector('.fa-circle-xmark');
+
+            // Function to toggle the visibility of the nav dialog
+            function handlemenu() {
+                navDilog.classList.toggle('hidden'); // Toggle the 'hidden' class on the nav dialog
+            }
+
+            // Add event listener to hamburger button (to open the menu)
+            if (hamburgerButton) {
+                hamburgerButton.addEventListener('click', handlemenu); // Show menu
+            }
+
+            // Add event listener to close button inside the menu (to close the menu)
+            if (closeButton) {
+                closeButton.addEventListener('click', handlemenu); // Hide menu
+            }
+        });
+    </script>
+</body>
+</html>
